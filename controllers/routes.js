@@ -1,12 +1,28 @@
 module.exports = {
   registerRoutes: function (server){
     server.get('/', this.home);
+    server.get('/posts', this.getPosts);
+    server.post('/posts', this.setPosts);
     server.use(this['404']);
     server.use(this['500']);
   },
 
   home: function(req,res,next){
     res.render("index.ejs");
+  },
+
+  getPosts: function (req,res){
+    //get data from the database
+
+    res.json(results);
+  },
+
+  setPosts: function (req,res){
+
+    if(req.xhr)
+
+    //put data to the database then send the results
+    res.json(results);
   },
 
   404: function(req,res){

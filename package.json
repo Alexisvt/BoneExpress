@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon -e js,html,jade"
+    "start": "nodemon -e js,html,jade,ejs"
   },
   "repository": {
     "type": "git",
@@ -28,5 +28,9 @@
     "ejs": "^2.3.1",
     "express": "^4.12.1",
     "mongoose": "^3.8.24"
+  },
+  "devDependencies": {
+    "backbone": "^1.1.2",
+    "jquery": "^2.1.3"
   }
 }
