@@ -12,10 +12,10 @@ server.set('view cache', true);
 mongoose.connect("mongodb://localhost/blog")
 var db = mongoose.connection;
 
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function (callback){
-  console.log('we are in and connected');
-});
+//db.on('error', console.error.bind(console, 'connection error:'));
+////db.once('open', function (callback){
+////  console.log('we are in and connected');
+////});
 
 //middlewares
 server.use(express.static(__dirname + "/public"));

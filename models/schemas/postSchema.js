@@ -8,4 +8,13 @@ var postSchema = mongoose.Schema({
   content: 'String'
 });
 
+postSchema.methods.getPosts = function(){
+  return this.model('Post').find({}, function callback (err,postsFound,numberPostFound){
+
+    if(err) return {error : err};
+
+    return postsFound;
+  });
+}
+
 module.exports = postSchema;
