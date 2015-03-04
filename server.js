@@ -31,7 +31,6 @@ else{
   console.log('routes are undefined');
 }
 
-
 //starting the server
 server.listen(server.get('port'), function () {
   console.log("Express started on http://localhost:" + server.get('port'));

@@ -1,3 +1,6 @@
+//Calling the Post Model to retreive and set information to the data bases
+var PostModel = require('../models/postModel');
+
 module.exports = {
   registerRoutes: function (server){
     server.get('/', this.home);
@@ -19,7 +22,22 @@ module.exports = {
 
   setPosts: function (req,res){
 
+    var post;
+
+    //the req came from AJAX?
     if(req.xhr)
+    {
+      //We are getting the data from the req and putting into the model
+      post = new PostModel({
+        pubDate : req.body.pudDate,
+        title: req.body.title,
+        content: req.body.content
+      })
+
+      post.save(function callback (err){
+        if(err) return console.log(err);
+      });
+    }
 
     //put data to the database then send the results
     res.json(results);
