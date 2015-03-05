@@ -10,7 +10,7 @@ server.set('view cache', true);
 
 //connecting to mongoDB
 mongoose.connect("mongodb://localhost/blog")
-var db = mongoose.connection;
+// var db = mongoose.connection;
 
 //db.on('error', console.error.bind(console, 'connection error:'));
 ////db.once('open', function (callback){

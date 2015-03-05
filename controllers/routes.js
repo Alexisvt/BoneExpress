@@ -1,9 +1,9 @@
 //Calling the Post Model to retreive and set information to the data bases
-var PostModel = require('../models/postModel');
+var PostModel = require('../models/postModel.js');
 var result;
 
 module.exports = {
-  registerRoutes: function (server) {
+  registerRoutes: function(server) {
 
     server.get('/', this.home);
     server.get('/posts', this.getPosts);
@@ -13,29 +13,29 @@ module.exports = {
 
   },
 
-  home: function (req, res, next) {
+  home: function(req, res, next) {
     res.render("index.ejs");
   },
 
-  getPosts: function (req, res, next) {
+  getPosts: function(req, res, next) {
 
-    if(req.xhr)
-    {
+    if (req.xhr) {
+      if (PostModel.getPosts === undefined) {
+        return res.status(500).json({error: 'getPosts is undefined'});
+      }
       result = PostModel.getPosts();
 
-      if(result.error !== undefined)
-      {
+      if (result.error !== undefined) {
         return res.json(result);
       }
 
       return res.json(result);
-    }
-    else{
+    } else {
       return next();
     }
   },
 
-  setPosts: function (req, res, next) {
+  setPosts: function(req, res, next) {
 
     var postDocument;
 
@@ -49,28 +49,28 @@ module.exports = {
         content: req.body.content
       });
 
-      result = postDocument.save(function callback(err,postSaved,numberAffected) {
-        if (err) return {error : err};
+      result = postDocument.save(function callback(err, postSaved, numberAffected) {
+        if (err) return {
+          error: err
+        };
         return postSaved;
       });
 
-      if(result.error !== undefined)
-      {
+      if (result.error !== undefined) {
         return res.json(result);
       }
       return res.json(result);
-    }
-    else{
+    } else {
       return next();
     }
   },
 
-  404: function (req, res) {
+  404: function(req, res) {
     res.status(400);
     res.send('400 - Page not found');
   },
 
-  500: function (req, res, next) {
+  500: function(req, res, next) {
     res.status(500);
     res.send('500 - Server error');
   }
