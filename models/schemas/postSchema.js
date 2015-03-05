@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 
 //Defining Post Schema
-var postSchema = mongoose.Schema({
+var postSchema = new mongoose.Schema({
   // id : 'String',
   pubDate: 'String',
   title: 'String',
