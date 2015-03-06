@@ -1,5 +1,5 @@
 //Calling the Post Model to retreive and set information to the data bases
-var PostModel = require('../models/postModel.js');
+var modelos = require('../models/modelos');
 var result;
 
 module.exports = {
@@ -20,10 +20,10 @@ module.exports = {
   getPosts: function(req, res, next) {
 
     if (req.xhr) {
-      if (PostModel.getPosts === undefined) {
+      if (modelos.postModel.getPosts === undefined) {
         return res.status(500).json({error: 'getPosts is undefined'});
       }
-      result = PostModel.getPosts();
+      result = modelos.postModel.getPosts();
 
       if (result.error !== undefined) {
         return res.json(result);
@@ -43,7 +43,7 @@ module.exports = {
     if (req.xhr) {
 
       //We are getting the data from the req and putting into the model
-      postDocument = new PostModel({
+      postDocument = new modelos.postModel({
         pubDate: req.body.pudDate,
         title: req.body.title,
         content: req.body.content
