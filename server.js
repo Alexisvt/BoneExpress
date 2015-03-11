@@ -10,12 +10,28 @@ server.set('view cache', true);
 
 //connecting to mongoDB
 mongoose.connect("mongodb://localhost/blog")
-// var db = mongoose.connection;
-//
-// db.on('error', console.error.bind(console, 'connection error:'));
-// db.once('open', function (callback){
-//  console.log('we are in and connected');
-// });
+
+mongoose.connection.on('error', function (err) {
+  if(err){
+
+    console.log('Mongoose connection error: ' + err);
+
+    mongoose.connection.close(function () {
+      console.log('Mongoose default connection close for error on the connection')
+    });
+  }
+});
+
+mongoose.connection.on('disconnected', function () {
+  console.log('Mongoose disconnnected');
+})
+
+process.on('SIGINT', function () {
+  mongoose.connection.close(function () {
+    console.log('Mongoose disconnected through app termination');
+    process.exit(0);
+  })
+})
 
 //middlewares
 server.use(express.static(__dirname + "/public"));
