@@ -14,16 +14,18 @@ module.exports = {
   },
 
   home: function(req, res, next) {
-    res.render("index.ejs");
+    res.render("index.ejs", { hola : "hola mundo" });
   },
 
   getPosts: function(req, res, next) {
 
+    var postDocument = modelos.postModel();
+
     if (req.xhr) {
-      if (modelos.postModel.getPosts === undefined) {
+      if (postDocument.getPosts === undefined) {
         return res.status(500).json({error: 'getPosts is undefined'});
       }
-      result = modelos.postModel.getPosts();
+      result = postDocument.getPosts();
 
       if (result.error !== undefined) {
         return res.json(result);
@@ -33,6 +35,7 @@ module.exports = {
     } else {
       return next();
     }
+
   },
 
   setPosts: function(req, res, next) {
