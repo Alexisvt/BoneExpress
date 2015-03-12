@@ -7,7 +7,8 @@ var postSchema = new Schema({
   content: String
 });
 
-postSchema.methods.getPosts = function(){
+// cb is the callback function
+postSchema.methods.getPosts = function(cb){
   /*
       this.model('postModel') ese nombre debe de ser el mismo nombre que
       tiene que tener el modelo ej: var postModel = mongoose.model('postModel', postSchema)
@@ -15,13 +16,7 @@ postSchema.methods.getPosts = function(){
       ej: var postDocument = postModel();
       postDocument.getPosts()
   */
-  return this.model('postModel').find(function callback (err,found){
-
-    if(err) return err;
-
-    return found;
-
-  });
+  return this.model('postModel').find({}, cb);
 };
 
 module.exports = postSchema;

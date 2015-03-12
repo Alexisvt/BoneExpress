@@ -1,4 +1,5 @@
 //Calling the Post Model to retreive and set information to the data bases
+var result;
 var modelos = require('../models/modelos');
 
 
@@ -19,31 +20,43 @@ module.exports = {
 
   getPosts: function(req, res, next) {
 
-    var result;
     var postDocument = modelos.postModel();
 
-    if (req.xhr) {
+    // if (req.xhr) {
       if (postDocument.getPosts === undefined) {
         return res.status(500).json({error: 'getPosts is undefined'});
       }
 
-      result = postDocument.getPosts();
+      postDocument.getPosts(function callback (err,found){
 
-      if(result.err)
-        res.status(500).json(result);
+        if(err) return next(err);
 
-      if(result.ceroFound)
-        res.status(404).json(result);
+        if(found.length === 0){
 
-      if(result)
-        return res.json(result);
-      else
-        return next();
+          //seeding the database
+          var newCreatedPost = new modelos.postModel({
+            pudDate : '12-03-2015',
+            title: 'hola mundo',
+            content: 'At vero eos et accusamus et iusto odio dignissimos ducimus'
+          });
 
-    }
-    else {
-      return next();
-    }
+          //Created a new post to display
+          newCreatedPost.save(function (err) {
+      			if(err) return next(err);
+      			res.redirect(303, '/');
+      		});
+
+
+        }
+
+        return res.json(found);
+
+      });
+
+    // }
+    // else {
+    //   return next();
+    // }
 
   },
 
