@@ -1,6 +1,6 @@
 //Calling the Post Model to retreive and set information to the data bases
 var modelos = require('../models/modelos');
-var result;
+
 
 module.exports = {
   registerRoutes: function(server) {
@@ -19,20 +19,29 @@ module.exports = {
 
   getPosts: function(req, res, next) {
 
+    var result;
     var postDocument = modelos.postModel();
 
     if (req.xhr) {
       if (postDocument.getPosts === undefined) {
         return res.status(500).json({error: 'getPosts is undefined'});
       }
+
       result = postDocument.getPosts();
 
-      if (result.error !== undefined) {
-        return res.json(result);
-      }
+      if(result.err)
+        res.status(500).json(result);
 
-      return res.json(result);
-    } else {
+      if(result.ceroFound)
+        res.status(404).json(result);
+
+      if(result)
+        return res.json(result);
+      else
+        return next();
+
+    }
+    else {
       return next();
     }
 

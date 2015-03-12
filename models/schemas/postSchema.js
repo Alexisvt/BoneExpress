@@ -15,11 +15,12 @@ postSchema.methods.getPosts = function(){
       ej: var postDocument = postModel();
       postDocument.getPosts()
   */
-  return this.model('postModel').find({}, function callback (err,postsFound,numberPostFound){
+  return this.model('postModel').find(function callback (err,found){
 
-    if(err) return {error : err};
+    if(err) return err;
 
-    return postsFound;
+    return found;
+
   });
 };
 
