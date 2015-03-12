@@ -21,6 +21,7 @@ module.exports = {
   getPosts: function(req, res, next) {
 
     var postDocument = modelos.postModel();
+    var seed;
 
     // if (req.xhr) {
       if (postDocument.getPosts === undefined) {
@@ -41,15 +42,20 @@ module.exports = {
           });
 
           //Created a new post to display
-          newCreatedPost.save(function (err) {
+          seed = newCreatedPost.save(function (err, postSaved) {
       			if(err) return next(err);
-      			res.redirect(303, '/');
-      		});
 
+            return postSaved;
+
+      		//	res.json(postSaved);
+      		});
 
         }
 
-        return res.json(found);
+        if(seed)
+        res.json(seed)
+        else
+        res.json(found);
 
       });
 
