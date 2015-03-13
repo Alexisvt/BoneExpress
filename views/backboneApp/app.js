@@ -1,12 +1,16 @@
 var Backbone = require("backbone");
 var $ = require("jquery");
-
 Backbone.$ = $;
 
-//defining a backbone model
-var Post = Backbone.Model.extend({});
+var BreadcrumbView = require("./Views/breadcrumbView");
 
-var Posts = Backbone.Collection.extend({
-  model: Post,
-  url: "/posts"
-});
+var App = {
+  init: function(){
+    var crubView = new BreadcrumbView({el : "#breadcrumbs"});
+    crubView.render();
+  }
+};
+
+$(function(){
+  App.init();
+})

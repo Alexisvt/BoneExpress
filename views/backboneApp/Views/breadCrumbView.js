@@ -1,10 +1,8 @@
-var App = {
-  init: function(){
+var Backbone = require("backbone");
+var $ = require("jquery");
+Backbone.$ = $;
 
-  }
-};
-
-App.BreadcrumbView = Backbone.View.extend({
+module.exports = Backbone.View.extend({
   render : function(){
     $(this.el).html('<li><h3><a href="#"> DATABASES</a></h3></li>');
   },
@@ -18,6 +16,3 @@ App.BreadcrumbView = Backbone.View.extend({
   }
 
 });
-
-var crubView = new App.BreadcrumbView({el : "#breadcrumbs"});
-crubView.render();

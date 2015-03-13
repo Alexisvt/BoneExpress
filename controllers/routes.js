@@ -15,7 +15,7 @@ module.exports = {
   },
 
   home: function(req, res, next) {
-    res.render("index.ejs", { hola : "hola mundo" });
+    res.render("index");
   },
 
   getPosts: function(req, res, next) {

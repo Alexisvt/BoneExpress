@@ -7,6 +7,7 @@ var bodyParser = require("body-parser");
 //setting the server
 server.set('port', process.env.PORT || 3500);
 server.set('view cache', true);
+server.set('view engine', 'jade');
 
 //connecting to mongoDB
 mongoose.connect("mongodb://localhost/blog")
