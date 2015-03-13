@@ -12365,42 +12365,43 @@ var _ = require("underscore");
 Backbone.$ = $;
 
 var DatabaseView = Backbone.View.extend({
-//  tagName: "li",
-
+  tagName: "tr",
   events: {
-    "click a": "diHola"
+    "click a" : "diHola",
+    "click button" : "diHola"
   },
-
-  diHola: function () {
-    alert('Hola mundo');
+  diHola : function (){
+    return alert('hola mundo');
   },
-
-  render: function () {
+  render : function() {
+    var contenido = { name : 'hola mundo'};
     var template = $("#database-list-template").html();
-    var compiled = _.template(template, {name: "Templated Name"});
+    var compiled = _.template(template, contenido);
     $(this.el).html(compiled);
     return this;
   }
 });
 
 var DatabaseListView = Backbone.View.extend({
-  tagName: "ul",
-
+  tagName: "table",
+  className : 'table table-striped',
   render: function () {
     var i;
     var els = [];
-    for (i = 0; i <= 5; i++) {
+    for (i = 1; i <= 5; i++) {
       var itemView = new DatabaseView();
       els.push(itemView.render().el);
+//      $(this.el).append(itemView.render().el);
     }
 
-    $(this.el).html(els);
 //    return this;
+    $(this.el).html(els);
     $('#database-list').html(this.el);
   }
 });
 
 module.exports = DatabaseListView;
+
 },{"backbone":"C:\\Users\\OSI-7\\Documents\\Test Enviroments\\BoneExpress\\node_modules\\backbone\\backbone.js","jquery":"C:\\Users\\OSI-7\\Documents\\Test Enviroments\\BoneExpress\\node_modules\\jquery\\dist\\jquery.js","underscore":"C:\\Users\\OSI-7\\Documents\\Test Enviroments\\BoneExpress\\node_modules\\underscore\\underscore.js"}],"C:\\Users\\OSI-7\\Documents\\Test Enviroments\\BoneExpress\\views\\backboneApp\\Views\\breadcrumbView.js":[function(require,module,exports){
 /* jshint -W117 */
 

@@ -2,13 +2,19 @@ doctype html
 html
   head
     title Little test page
+    link(rel="stylesheet", type="text/css", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css")
+    link(rel="stylesheet", type="text/css", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css")
   body
     .row
       #breadcrumbs.span12
     .row
       #database-list.span12
 
-    script#database-list-template(type="text/backbone")
-      <li><a href = "#"><%=name%></a></li>
-
+    script#database-list-template(type="text/template").
+      <td>
+        <a href = "#"><%= name %></a>
+      </td>
+      <td>
+        <button class="btb btn-info"> Click me</button>
+      </td>
     script(src="js/bundle.js")
