@@ -1,3 +1,5 @@
+/* jshint -W117 */
+
 var Backbone = require("backbone");
 var $ = require("jquery");
 Backbone.$ = $;

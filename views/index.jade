@@ -5,4 +5,10 @@ html
   body
     .row
       #breadcrumbs.span12
+    .row
+      #database-list.span12
+
+    script#database-list-template(type="text/backbone")
+      <li><a href = "#"><%=name%></a></li>
+
     script(src="js/bundle.js")
