@@ -12353,18 +12353,42 @@ return jQuery;
 
 }));
 
-},{}],"C:\\Users\\OSI-7\\Documents\\Test Enviroments\\BoneExpress\\views\\backboneApp\\app.js":[function(require,module,exports){
+},{}],"C:\\Users\\OSI-7\\Documents\\Test Enviroments\\BoneExpress\\views\\backboneApp\\Views\\breadcrumbView.js":[function(require,module,exports){
 var Backbone = require("backbone");
 var $ = require("jquery");
-
 Backbone.$ = $;
 
-//defining a backbone model
-var Post = Backbone.Model.extend({});
+module.exports = Backbone.View.extend({
+  render : function(){
+    $(this.el).html('<li><h3><a href="#"> DATABASES</a></h3></li>');
+  },
 
-var Posts = Backbone.Collection.extend({
-  model: Post,
-  url: "/posts"
+  events: {
+    "click a" : "diHola"
+  },
+
+  diHola : function(){
+    alert("Hola a todos");
+  }
+
 });
 
-},{"backbone":"C:\\Users\\OSI-7\\Documents\\Test Enviroments\\BoneExpress\\node_modules\\backbone\\backbone.js","jquery":"C:\\Users\\OSI-7\\Documents\\Test Enviroments\\BoneExpress\\node_modules\\jquery\\dist\\jquery.js"}]},{},["C:\\Users\\OSI-7\\Documents\\Test Enviroments\\BoneExpress\\views\\backboneApp\\app.js"]);
+},{"backbone":"C:\\Users\\OSI-7\\Documents\\Test Enviroments\\BoneExpress\\node_modules\\backbone\\backbone.js","jquery":"C:\\Users\\OSI-7\\Documents\\Test Enviroments\\BoneExpress\\node_modules\\jquery\\dist\\jquery.js"}],"C:\\Users\\OSI-7\\Documents\\Test Enviroments\\BoneExpress\\views\\backboneApp\\app.js":[function(require,module,exports){
+var Backbone = require("backbone");
+var $ = require("jquery");
+Backbone.$ = $;
+
+var BreadcrumbView = require("./Views/breadcrumbView");
+
+var App = {
+  init: function(){
+    var crubView = new BreadcrumbView({el : "#breadcrumbs"});
+    crubView.render();
+  }
+};
+
+$(function(){
+  App.init();
+})
+
+},{"./Views/breadcrumbView":"C:\\Users\\OSI-7\\Documents\\Test Enviroments\\BoneExpress\\views\\backboneApp\\Views\\breadcrumbView.js","backbone":"C:\\Users\\OSI-7\\Documents\\Test Enviroments\\BoneExpress\\node_modules\\backbone\\backbone.js","jquery":"C:\\Users\\OSI-7\\Documents\\Test Enviroments\\BoneExpress\\node_modules\\jquery\\dist\\jquery.js"}]},{},["C:\\Users\\OSI-7\\Documents\\Test Enviroments\\BoneExpress\\views\\backboneApp\\app.js"]);
