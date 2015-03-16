@@ -8,6 +8,7 @@ var bodyParser = require("body-parser");
 server.set('port', process.env.PORT || 3500);
 server.set('view cache', true);
 server.set('view engine', 'jade');
+//server.locals._ = require("underscore");
 
 //connecting to mongoDB
 mongoose.connect("mongodb://localhost/blog")

@@ -1,87 +1,4 @@
-(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({"C:\\Users\\OSI-7\\Documents\\Test Enviroments\\BoneExpress\\Views\\bone\\Views\\DatabaseView.js":[function(require,module,exports){
-var Backbone = require("backbone");
-var $ = require("jquery");
-var _ = require("underscore");
-Backbone.$ = $;
-
-var DatabaseView = Backbone.View.extend({
-  tagName: "tr",
-  events: {
-    "click a": "diHola",
-    "click button": "diHola"
-  },
-  diHola: function (){
-    return alert("hola mundo");
-  },
-  render: function() {
-    "use strict";
-    var template = $("#database-list-template").html();
-    var compiled = _.template(template, {name: "hola mundo"});
-    $(this.el).html(compiled);
-    return this;
-  }
-});
-
-var DatabaseListView = Backbone.View.extend({
-  tagName: "table",
-  className: "table table-striped",
-  render: function () {
-    var i;
-    var els = [];
-    for (i = 1; i <= 5; i++) {
-      var itemView = new DatabaseView();
-      els.push(itemView.render().el);
-    }
-
-//    return this;
-    $(this.el).html(els);
-    $("#database-list").html(this.el);
-  }
-});
-
-module.exports = DatabaseListView;
-
-},{"backbone":"C:\\Users\\OSI-7\\Documents\\Test Enviroments\\BoneExpress\\node_modules\\backbone\\backbone.js","jquery":"C:\\Users\\OSI-7\\Documents\\Test Enviroments\\BoneExpress\\node_modules\\jquery\\dist\\jquery.js","underscore":"C:\\Users\\OSI-7\\Documents\\Test Enviroments\\BoneExpress\\node_modules\\underscore\\underscore.js"}],"C:\\Users\\OSI-7\\Documents\\Test Enviroments\\BoneExpress\\Views\\bone\\Views\\breadcrumbView.js":[function(require,module,exports){
-var Backbone = require("backbone");
-var $ = require("jquery");
-Backbone.$ = $;
-
-module.exports = Backbone.View.extend({
-  render: function(){
-    $(this.el).html("<li><h3><a href='#'> DATABASES</a></h3></li>");
-  },
-
-  events: {
-    "click a": "diHola"
-  },
-
-  diHola: function(){
-    alert("Hola a todos");
-  }
-
-});
-
-},{"backbone":"C:\\Users\\OSI-7\\Documents\\Test Enviroments\\BoneExpress\\node_modules\\backbone\\backbone.js","jquery":"C:\\Users\\OSI-7\\Documents\\Test Enviroments\\BoneExpress\\node_modules\\jquery\\dist\\jquery.js"}],"C:\\Users\\OSI-7\\Documents\\Test Enviroments\\BoneExpress\\Views\\bone\\app.js":[function(require,module,exports){
-var Backbone = require("backbone");
-var $ = require("jquery");
-Backbone.$ = $;
-
-var BreadcrumbView = require("./Views/breadcrumbView");
-var DatabaseListView = require("./Views/DatabaseView");
-
-var App = {
-  init: function(){
-    var crubView = new BreadcrumbView({el: "#breadcrumbs"});
-    var listView = new DatabaseListView();
-    crubView.render();
-    listView.render();
-  }
-};
-
-$(function(){
-  App.init();
-});
-},{"./Views/DatabaseView":"C:\\Users\\OSI-7\\Documents\\Test Enviroments\\BoneExpress\\Views\\bone\\Views\\DatabaseView.js","./Views/breadcrumbView":"C:\\Users\\OSI-7\\Documents\\Test Enviroments\\BoneExpress\\Views\\bone\\Views\\breadcrumbView.js","backbone":"C:\\Users\\OSI-7\\Documents\\Test Enviroments\\BoneExpress\\node_modules\\backbone\\backbone.js","jquery":"C:\\Users\\OSI-7\\Documents\\Test Enviroments\\BoneExpress\\node_modules\\jquery\\dist\\jquery.js"}],"C:\\Users\\OSI-7\\Documents\\Test Enviroments\\BoneExpress\\node_modules\\backbone\\backbone.js":[function(require,module,exports){
+(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({"C:\\Users\\OSI-7\\Documents\\Test Enviroments\\BoneExpress\\node_modules\\backbone\\backbone.js":[function(require,module,exports){
 //     Backbone.js 1.1.2
 
 //     (c) 2010-2014 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
@@ -12438,4 +12355,92 @@ return jQuery;
 
 },{}],"C:\\Users\\OSI-7\\Documents\\Test Enviroments\\BoneExpress\\node_modules\\underscore\\underscore.js":[function(require,module,exports){
 arguments[4]["C:\\Users\\OSI-7\\Documents\\Test Enviroments\\BoneExpress\\node_modules\\backbone\\node_modules\\underscore\\underscore.js"][0].apply(exports,arguments)
-},{}]},{},["C:\\Users\\OSI-7\\Documents\\Test Enviroments\\BoneExpress\\Views\\bone\\app.js"]);
+},{}],"C:\\Users\\OSI-7\\Documents\\Test Enviroments\\BoneExpress\\views\\Bone\\Views\\DatabaseView.js":[function(require,module,exports){
+var Backbone = require("backbone");
+var $ = require("jquery");
+var _ = require("underscore");
+Backbone.$ = $;
+
+//require templates
+//var compiled = require("./database-list-template.jade");
+
+
+var DatabaseView = Backbone.View.extend({
+  tagName: "tr",
+  events: {
+    "click a": "diHola",
+    "click button": "diHola"
+  },
+  diHola: function (){
+    alert("hola mundo");
+  },
+  render: function() {
+    var templateData = $("#database-list-template").html();
+    var compiled = _.template(templateData, {name: "hola mundo"});
+//    compiled({name: "funcione jajaja"});
+    $(this.el).html(compiled);
+    return this;
+  }
+});
+
+var DatabaseListView = Backbone.View.extend({
+  tagName: "table",
+  className: "table table-striped",
+  render: function () {
+    var i;
+    var els = [];
+    for (i = 1; i <= 5; i++) {
+      var itemView = new DatabaseView();
+      els.push(itemView.render().el);
+    }
+
+//    return this;
+    $(this.el).html(els);
+    $("#database-list").html(this.el);
+  }
+});
+
+module.exports = DatabaseListView;
+
+},{"backbone":"C:\\Users\\OSI-7\\Documents\\Test Enviroments\\BoneExpress\\node_modules\\backbone\\backbone.js","jquery":"C:\\Users\\OSI-7\\Documents\\Test Enviroments\\BoneExpress\\node_modules\\jquery\\dist\\jquery.js","underscore":"C:\\Users\\OSI-7\\Documents\\Test Enviroments\\BoneExpress\\node_modules\\underscore\\underscore.js"}],"C:\\Users\\OSI-7\\Documents\\Test Enviroments\\BoneExpress\\views\\Bone\\Views\\breadcrumbView.js":[function(require,module,exports){
+var Backbone = require("backbone");
+var $ = require("jquery");
+Backbone.$ = $;
+
+module.exports = Backbone.View.extend({
+  render: function(){
+    $(this.el).html("<li><h3><a href='#'> DATABASES</a></h3></li>");
+  },
+
+  events: {
+    "click a": "diHola"
+  },
+
+  diHola: function(){
+    alert("Hola a todos");
+  }
+
+});
+
+},{"backbone":"C:\\Users\\OSI-7\\Documents\\Test Enviroments\\BoneExpress\\node_modules\\backbone\\backbone.js","jquery":"C:\\Users\\OSI-7\\Documents\\Test Enviroments\\BoneExpress\\node_modules\\jquery\\dist\\jquery.js"}],"C:\\Users\\OSI-7\\Documents\\Test Enviroments\\BoneExpress\\views\\Bone\\app.js":[function(require,module,exports){
+var Backbone = require("backbone");
+var $ = require("jquery");
+Backbone.$ = $;
+
+var BreadcrumbView = require("./Views/breadcrumbView");
+var DatabaseListView = require("./Views/DatabaseView");
+
+var App = {
+  init: function(){
+    var crubView = new BreadcrumbView({el: "#breadcrumbs"});
+    var listView = new DatabaseListView();
+    crubView.render();
+    listView.render();
+  }
+};
+
+$(function(){
+  App.init();
+});
+
+},{"./Views/DatabaseView":"C:\\Users\\OSI-7\\Documents\\Test Enviroments\\BoneExpress\\views\\Bone\\Views\\DatabaseView.js","./Views/breadcrumbView":"C:\\Users\\OSI-7\\Documents\\Test Enviroments\\BoneExpress\\views\\Bone\\Views\\breadcrumbView.js","backbone":"C:\\Users\\OSI-7\\Documents\\Test Enviroments\\BoneExpress\\node_modules\\backbone\\backbone.js","jquery":"C:\\Users\\OSI-7\\Documents\\Test Enviroments\\BoneExpress\\node_modules\\jquery\\dist\\jquery.js"}]},{},["C:\\Users\\OSI-7\\Documents\\Test Enviroments\\BoneExpress\\views\\Bone\\app.js"]);

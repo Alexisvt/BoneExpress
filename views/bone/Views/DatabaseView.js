@@ -3,6 +3,10 @@ var $ = require("jquery");
 var _ = require("underscore");
 Backbone.$ = $;
 
+//require templates
+//var compiled = require("./database-list-template.jade");
+
+
 var DatabaseView = Backbone.View.extend({
   tagName: "tr",
   events: {
@@ -10,12 +14,12 @@ var DatabaseView = Backbone.View.extend({
     "click button": "diHola"
   },
   diHola: function (){
-    return alert("hola mundo");
+    alert("hola mundo");
   },
   render: function() {
-    "use strict";
-    var template = $("#database-list-template").html();
-    var compiled = _.template(template, {name: "hola mundo"});
+    var templateData = $("#database-list-template").html();
+    var compiled = _.template(templateData, {name: "hola mundo"});
+//    compiled({name: "funcione jajaja"});
     $(this.el).html(compiled);
     return this;
   }
