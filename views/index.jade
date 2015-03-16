@@ -11,10 +11,6 @@ html
       #database-list.span12
 
     script#database-list-template(type="text/template").
-      <td>
-        <a href = "#"><%= name %></a>
-      </td>
-      <td>
-        <button class="btb btn-info"> Click me</button>
-      </td>
+      <td><a href = "#"><%=name%></a></td>
+      <td><button class="btb btn-info"> Click me</button></td>
     script(src="js/bundle.js")
