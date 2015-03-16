@@ -10,7 +10,9 @@ html
     .row
       #database-list.span12
 
-    script#database-list-template(type="text/template").
-      <td><a href = "#"><%=name%></a></td>
-      <td><button class="btb btn-info"> Click me</button></td>
+    script#database-list-template(type="text/template")
+      td
+        a(href = "#") <%=name%>
+      td
+        button(class="btb btn-info") Click me
     script(src="js/bundle.js")
