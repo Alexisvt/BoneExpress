@@ -1,16 +1,16 @@
 //Calling the Post Model to retreive and set information to the data bases
 var result;
-var modelos = require('../models/modelos');
+var modelos = require("../models/modelos");
 
 
 module.exports = {
   registerRoutes: function(server) {
 
-    server.get('/', this.home);
-    server.get('/posts', this.getPosts);
-    server.post('/posts', this.setPosts);
-    server.use(this['404']);
-    server.use(this['500']);
+    server.get("/", this.home);
+    server.get("/posts", this.getPosts);
+    server.post("/posts", this.setPosts);
+    server.use(this["404"]);
+    server.use(this["500"]);
 
   },
 
