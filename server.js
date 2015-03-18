@@ -11,29 +11,29 @@ server.set('view engine', 'jade');
 //server.locals._ = require("underscore");
 
 //connecting to mongoDB
-mongoose.connect("mongodb://localhost/blog")
-
-mongoose.connection.on('error', function (err) {
-  if(err){
-
-    console.log('Mongoose connection error: ' + err);
-
-    mongoose.connection.close(function () {
-      console.log('Mongoose default connection close for error on the connection')
-    });
-  }
-});
-
-mongoose.connection.on('disconnected', function () {
-  console.log('Mongoose disconnnected');
-})
-
-process.on('SIGINT', function () {
-  mongoose.connection.close(function () {
-    console.log('Mongoose disconnected through app termination');
-    process.exit(0);
-  })
-})
+//mongoose.connect("mongodb://localhost/blog")
+//
+//mongoose.connection.on('error', function (err) {
+//  if(err){
+//
+//    console.log('Mongoose connection error: ' + err);
+//
+//    mongoose.connection.close(function () {
+//      console.log('Mongoose default connection close for error on the connection')
+//    });
+//  }
+//});
+//
+//mongoose.connection.on('disconnected', function () {
+//  console.log('Mongoose disconnnected');
+//})
+//
+//process.on('SIGINT', function () {
+//  mongoose.connection.close(function () {
+//    console.log('Mongoose disconnected through app termination');
+//    process.exit(0);
+//  })
+//})
 
 //middlewares
 server.use(express.static(__dirname + "/public"));

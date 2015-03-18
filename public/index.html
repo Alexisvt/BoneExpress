@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Little test page</title>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div id="breadcrumbs" class="span12"></div>
+      </div>
+      <div class="row">
+        <div id="database-list" class="span12"></div>
+      </div>
+    </div>
+    <script id="database-list-template" type="text/template">
+      <td><a href="#"><%= name %></a></td>
+      <td>
+        <button class="btb btn-info">Click me</button>
+      </td>
+    </script>
+    <script src="js/jquery-2.1.3.min.js"></script>
+    <script src="js/underscore-min.js"></script>
+    <script src="js/backbone-min.js"></script>
+    <script src="js/index.js"></script>
+  </body>
+</html>

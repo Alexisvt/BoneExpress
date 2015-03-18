@@ -1,3 +1,5 @@
+"use strict";
+
 var DatabaseView = Backbone.View.extend({
   tagName: "tr",
   events: {
@@ -8,9 +10,9 @@ var DatabaseView = Backbone.View.extend({
     return alert("hola mundo");
   },
   render: function() {
-    "use strict";
-    var template = $("#database-list-template").html();
-    var compiled = _.template(template, {name: "hola mundo"});
+//    var template = ;
+    var compiled = _.template($("#database-list-template").html());
+    compiled({});
     $(this.el).html(compiled);
     return this;
   }
@@ -36,7 +38,10 @@ var DatabaseListView = Backbone.View.extend({
 
 var BreadcrumbView = Backbone.View.extend({
   render: function(){
-    $(this.el).html('<li><h3><a href="#"> DATABASES</a></h3></li>');
+    var compiled = _.template('<h3><a href="#"> <%= name %> DATABASES</a></h3>');
+    compiled({name: "hola mundo"});
+//    $(this.el).html('<li><h3><a href="#"> DATABASES</a></h3></li>');
+    $(this.el).html(compiled);
   },
 
   events: {
