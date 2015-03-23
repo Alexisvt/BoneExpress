@@ -6,7 +6,7 @@ var modelos = require("../models/modelos");
 module.exports = {
   registerRoutes: function(server) {
 
-    server.get("/", this.home);
+    server.get("/", this.c2);
     server.get("/ch2", this.c2);
     server.get("/posts", this.getPosts);
     server.post("/posts", this.setPosts);
