@@ -6,7 +6,7 @@ var data = require("./movies.json");
 var movies = new Movies(data);
 var Monitor = require("./monitor");
 var monitor = new Monitor(movies);
-var MovieView = require("views/movie");
+var MovieView = require("views/movieView");
 var MoviesList = require("views/movielist");
 
 module.exports = {movies: movies, MovieViews: MovieView, MoviesList: MoviesList};
