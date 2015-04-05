@@ -12,7 +12,7 @@ var Monitor = function(collection) {
 module.exports = Monitor;
 
 },{"backbone":"C:\\Users\\OSI-7\\Documents\\Test Enviroments\\BoneExpress\\node_modules\\backbone\\backbone.js","underscore":"C:\\Users\\OSI-7\\Documents\\Test Enviroments\\BoneExpress\\node_modules\\underscore\\underscore.js"}],"C:\\Users\\OSI-7\\Documents\\Test Enviroments\\BoneExpress\\client\\movies.json":[function(require,module,exports){
-module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=[{
+module.exports=module.exports=module.exports=module.exports=[{
   "id": 1,
   "title": "The Artist"
 }, {
@@ -75,7 +75,6 @@ var MovieView = Backbone.View.extend({
       this.model.collection.resetSelected();
       this.model.collection.selectByID(this.model.id);
     }
-    //    console.log($(ev.currentTarget).html());
   },
   tagName: "article",
   className: "movie",
@@ -92,7 +91,6 @@ var MovieView = Backbone.View.extend({
 });
 
 module.exports = MovieView;
-
 },{"backbone":"C:\\Users\\OSI-7\\Documents\\Test Enviroments\\BoneExpress\\node_modules\\backbone\\backbone.js","jquery":"C:\\Users\\OSI-7\\Documents\\Test Enviroments\\BoneExpress\\node_modules\\jquery\\dist\\jquery.js","underscore":"C:\\Users\\OSI-7\\Documents\\Test Enviroments\\BoneExpress\\node_modules\\underscore\\underscore.js"}],"C:\\Users\\OSI-7\\Documents\\Test Enviroments\\BoneExpress\\client\\node_modules\\views\\movielist.js":[function(require,module,exports){
 var Backbone = require("backbone");
 

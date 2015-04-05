@@ -2,6 +2,18 @@ doctype html
 html
   head
     title Chapter 2
-    script(type="text/javascript", src="js/app.js")
+    link(rel="stylesheet", type="text/css", href="css/bootstrap.min.css")
+    link(rel="stylesheet", type="text/css", href="css/bootstrap-theme.css")
     link(rel="stylesheet", type="text/css", href="css/estilo.css")
   body
+    .container
+      .row
+        #breadcrumbs.span12
+      .row
+        #database-list.span12
+    script#database-list-template(type="text/backbone")
+      td
+        a(href="#") <%=name%>
+      td
+        button(type="button", class="btn btn-info") Click Me
+    script(type="text/javascript", src="js/index.js")
