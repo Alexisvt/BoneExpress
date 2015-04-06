@@ -7,7 +7,7 @@ module.exports = {
   registerRoutes: function(server) {
 
     server.get("/", this.c2);
-    server.get("/ch2", this.c2);
+    server.get("/practice2", this.practice2);
     server.get("/posts", this.getPosts);
     server.post("/posts", this.setPosts);
     server.use(this["404"]);
@@ -21,6 +21,10 @@ module.exports = {
 
   c2: function(req, res, next) {
     res.render("chapter2");
+  },
+
+  practice2: function(req,res,next){
+    res.render("practice2");
   },
 
   getPosts: function(req, res, next) {

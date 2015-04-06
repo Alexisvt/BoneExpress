@@ -1,4 +1,16 @@
-(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({"C:\\Users\\OSI-7\\Documents\\Test Enviroments\\BoneExpress\\node_modules\\backbone\\backbone.js":[function(require,module,exports){
+require=(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({"C:\\Users\\OSI-7\\Documents\\Test Enviroments\\BoneExpress\\BoneApps\\Practice2\\node_modules\\config.js":[function(require,module,exports){
+var Backbone= require("backbone");
+var $ = require("jquery");
+var _ = require("underscore");
+Backbone.$ = $;
+
+module.exports= {
+  Backbone: Backbone,
+  $: $,
+  _: _
+};
+
+},{"backbone":"C:\\Users\\OSI-7\\Documents\\Test Enviroments\\BoneExpress\\node_modules\\backbone\\backbone.js","jquery":"C:\\Users\\OSI-7\\Documents\\Test Enviroments\\BoneExpress\\node_modules\\jquery\\dist\\jquery.js","underscore":"C:\\Users\\OSI-7\\Documents\\Test Enviroments\\BoneExpress\\node_modules\\underscore\\underscore.js"}],"C:\\Users\\OSI-7\\Documents\\Test Enviroments\\BoneExpress\\node_modules\\backbone\\backbone.js":[function(require,module,exports){
 //     Backbone.js 1.1.2
 
 //     (c) 2010-2014 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
@@ -12355,92 +12367,26 @@ return jQuery;
 
 },{}],"C:\\Users\\OSI-7\\Documents\\Test Enviroments\\BoneExpress\\node_modules\\underscore\\underscore.js":[function(require,module,exports){
 arguments[4]["C:\\Users\\OSI-7\\Documents\\Test Enviroments\\BoneExpress\\node_modules\\backbone\\node_modules\\underscore\\underscore.js"][0].apply(exports,arguments)
-},{}],"C:\\Users\\OSI-7\\Documents\\Test Enviroments\\BoneExpress\\views\\Bone\\Views\\DatabaseView.js":[function(require,module,exports){
-var Backbone = require("backbone");
-var $ = require("jquery");
-var _ = require("underscore");
-Backbone.$ = $;
+},{}],"app":[function(require,module,exports){
+var Config = require("config");
 
-//require templates
-//var compiled = require("./database-list-template.jade");
-
-
-var DatabaseView = Backbone.View.extend({
-  tagName: "tr",
-  events: {
-    "click a": "diHola",
-    "click button": "diHola"
-  },
-  diHola: function (){
-    alert("hola mundo");
-  },
-  render: function() {
-    var templateData = $("#database-list-template").html();
-    var compiled = _.template(templateData, {name: "hola mundo"});
-//    compiled({name: "funcione jajaja"});
-    $(this.el).html(compiled);
-    return this;
+var todo= Config.Backbone.Model.extend({
+  defaults: {
+    title: "",
+    completed: false
   }
 });
 
-var DatabaseListView = Backbone.View.extend({
-  tagName: "table",
-  className: "table table-striped",
-  render: function () {
-    var i;
-    var els = [];
-    for (i = 1; i <= 5; i++) {
-      var itemView = new DatabaseView();
-      els.push(itemView.render().el);
-    }
-
-//    return this;
-    $(this.el).html(els);
-    $("#database-list").html(this.el);
+var initModel = Config.Backbone.Model.extend({
+  initialize: function(){
+    console.log("This model has been initialize");
   }
-});
+})
 
-module.exports = DatabaseListView;
+// var getModel= Config.Backbone.Model.extend({
+//
+// })
 
-},{"backbone":"C:\\Users\\OSI-7\\Documents\\Test Enviroments\\BoneExpress\\node_modules\\backbone\\backbone.js","jquery":"C:\\Users\\OSI-7\\Documents\\Test Enviroments\\BoneExpress\\node_modules\\jquery\\dist\\jquery.js","underscore":"C:\\Users\\OSI-7\\Documents\\Test Enviroments\\BoneExpress\\node_modules\\underscore\\underscore.js"}],"C:\\Users\\OSI-7\\Documents\\Test Enviroments\\BoneExpress\\views\\Bone\\Views\\breadcrumbView.js":[function(require,module,exports){
-var Backbone = require("backbone");
-var $ = require("jquery");
-Backbone.$ = $;
+module.exports= {model: todo, initModel: initModel};
 
-module.exports = Backbone.View.extend({
-  render: function(){
-    $(this.el).html("<li><h3><a href='#'> DATABASES</a></h3></li>");
-  },
-
-  events: {
-    "click a": "diHola"
-  },
-
-  diHola: function(){
-    alert("Hola a todos");
-  }
-
-});
-
-},{"backbone":"C:\\Users\\OSI-7\\Documents\\Test Enviroments\\BoneExpress\\node_modules\\backbone\\backbone.js","jquery":"C:\\Users\\OSI-7\\Documents\\Test Enviroments\\BoneExpress\\node_modules\\jquery\\dist\\jquery.js"}],"C:\\Users\\OSI-7\\Documents\\Test Enviroments\\BoneExpress\\views\\Bone\\app.js":[function(require,module,exports){
-var Backbone = require("backbone");
-var $ = require("jquery");
-Backbone.$ = $;
-
-var BreadcrumbView = require("./Views/breadcrumbView");
-var DatabaseListView = require("./Views/DatabaseView");
-
-var App = {
-  init: function(){
-    var crubView = new BreadcrumbView({el: "#breadcrumbs"});
-    var listView = new DatabaseListView();
-    crubView.render();
-    listView.render();
-  }
-};
-
-$(function(){
-  App.init();
-});
-
-},{"./Views/DatabaseView":"C:\\Users\\OSI-7\\Documents\\Test Enviroments\\BoneExpress\\views\\Bone\\Views\\DatabaseView.js","./Views/breadcrumbView":"C:\\Users\\OSI-7\\Documents\\Test Enviroments\\BoneExpress\\views\\Bone\\Views\\breadcrumbView.js","backbone":"C:\\Users\\OSI-7\\Documents\\Test Enviroments\\BoneExpress\\node_modules\\backbone\\backbone.js","jquery":"C:\\Users\\OSI-7\\Documents\\Test Enviroments\\BoneExpress\\node_modules\\jquery\\dist\\jquery.js"}]},{},["C:\\Users\\OSI-7\\Documents\\Test Enviroments\\BoneExpress\\views\\Bone\\app.js"]);
+},{"config":"C:\\Users\\OSI-7\\Documents\\Test Enviroments\\BoneExpress\\BoneApps\\Practice2\\node_modules\\config.js"}]},{},[]);
