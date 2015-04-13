@@ -6,9 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon --debug -e js,html,jade",
-    "build-bone1": "watchify -r ./BoneApps/Practice1/main.js:app -o public/js/bundle.js -v",
-    "build-bone2": "watchify -r ./BoneApps/Practice2/app.js:app -o public/js/bundle.js -v",
-    "build-bone3": "watchify -r ./BoneApps/Practice3/app.js:app -o public/js/bundle.js -v"
+    "build-bone1": "watchify -r ./BoneApps/fullstackdev/main.js:app -o public/js/bundle.js -v",
+    "build-bone2": "watchify -r ./BoneApps/developingBackbone/app.js:app -o public/js/bundle.js -v",
+    "build-video": "watchify -r ./BoneApps/videoPractices/app.js:app -o public/js/bundle.js -v"
   },
   "repository": {
     "type": "git",

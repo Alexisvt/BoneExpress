@@ -7,7 +7,7 @@ module.exports = {
   registerRoutes: function(server) {
 
     server.get("/", this.c2);
-    server.get("/practice2", this.practice2);
+    server.get("/developingbackbone", this.developingbackbone);
     server.get("/posts", this.getPosts);
     server.post("/posts", this.setPosts);
     server.use(this["404"]);
@@ -23,8 +23,8 @@ module.exports = {
     res.render("chapter2");
   },
 
-  practice2: function(req,res,next){
-    res.render("practice2");
+  developingbackbone: function(req,res,next){
+    res.render("developingbackbone");
   },
 
   getPosts: function(req, res, next) {
